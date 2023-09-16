@@ -5,7 +5,8 @@ export function CardDisplay({ card }: { card: Card }) {
     <>
       <div className="cardDisplay">
         <p>Name: {card.name}</p>
-        <p>id: {card.id}</p>
+        <p>ID: {card.id}</p>
+        <p>Rank: {card.rank}</p>
       </div>
     </>
   );

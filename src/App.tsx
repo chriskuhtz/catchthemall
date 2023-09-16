@@ -1,24 +1,29 @@
-import { useState } from "react";
-import { CardDisplay } from "./components/card/Card";
+import { v4 } from "uuid";
+import { BoardDisplay } from "./components/board/BoardDisplay";
+import { Board } from "./interfaces/Board";
 import { PokemonCard } from "./interfaces/Card";
+import { CardSlot } from "./interfaces/CardSlot";
+
+const mockCard: PokemonCard = {
+  id: "x",
+  name: "pikachu",
+  type: "POKEMON",
+  rank: "BASIC",
+  pokemonProperties: "pikachudiebasicbitch",
+};
+const mockCardSlots: CardSlot[] = Array.from({ length: 20 }).map((x, i) => {
+  return {
+    id: v4(),
+    state: "available",
+    card: mockCard,
+    boardLayer: i % 4,
+    lockedBy: [],
+  };
+});
+const mockBoard: Board = { cardSlots: mockCardSlots };
 
 function App() {
-  const [count, setCount] = useState(0);
-
-  const y: PokemonCard = {
-    id: "x",
-    name: "pikachu",
-    type: "POKEMON",
-    rank: "BASIC",
-    pokemonProperties: "pikachudiebasicbitch",
-  };
-
-  return (
-    <div className="cardRow">
-      <CardDisplay card={y} />
-      <CardDisplay card={y} />
-    </div>
-  );
+  return <BoardDisplay board={mockBoard} />;
 }
 
 export default App;

@@ -35,4 +35,6 @@ body {
 .cardRow {
   display: flex;
   gap: 0.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid white;
 }
