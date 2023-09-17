@@ -1,40 +1,43 @@
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+	font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+	line-height: 1.5;
+	font-weight: 400;
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+	color-scheme: light dark;
+	color: rgba(255, 255, 255, 0.87);
+	background-color: #242424;
 
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%;
+	font-synthesis: none;
+	text-rendering: optimizeLegibility;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	-webkit-text-size-adjust: 100%;
 }
 
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+	max-width: 1280px;
+	margin: 0 auto;
+	padding: 2rem;
 }
 
 body {
-  margin: 0;
-  min-height: 100vh;
+	margin: 0;
+	min-height: 100vh;
 }
 
 .cardDisplay {
-  padding: 1rem;
-  border: 1px solid white;
-  border-radius: 0.5rem;
-  max-width: 150px;
+	padding: 1rem;
+	border: 1px solid white;
+	border-radius: 0.5rem;
+	max-width: 150px;
+	min-width: 150px;
 }
 
 .cardRow {
-  display: flex;
-  gap: 0.5rem;
-  padding-bottom: 0.5rem;
-  border-bottom: 1px solid white;
+	display: flex;
+	gap: 0.5rem;
+	padding: 0.5rem 0;
+	border-bottom: 1px solid white;
+	justify-content: space-between;
+	overflow: scroll;
 }

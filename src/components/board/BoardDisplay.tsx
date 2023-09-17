@@ -1,22 +1,17 @@
-import { Board } from "../../interfaces/Board";
-import { CardSlot } from "../../interfaces/CardSlot";
-import { CardDisplay } from "../card/CardDisplay";
+import { useMemo } from 'react';
+import { stackSlotsIntoBoardLayers } from '../../functions/stackSlotsIntoBoardLayers';
+import { Board } from '../../interfaces/Board';
+import { CardSlotRow } from '../cardSlotRow/CardSlotRow';
 
 export function BoardDisplay({ board }: { board: Board }) {
-  const sortedSlots = (slots: CardSlot[]): Record<number, CardSlot[]> => {
-    const res = {};
-    slots.forEach((slot) => {
-      Object.keys(res).find((key) => key === slot.boardLayer);
-    });
-    return res;
-  };
-
-  return (
-    <>
-      {board.cardSlots.map((c) => (
-        <CardDisplay card={c.card} />
-      ))}
-      <div className="cardRow"></div>
-    </>
-  );
+	const boardLayers = useMemo(() => {
+		return stackSlotsIntoBoardLayers(board.cardSlots);
+	}, [board]);
+	return (
+		<>
+			{Object.values(boardLayers).map((layer) => (
+				<CardSlotRow slots={layer} />
+			))}
+		</>
+	);
 }
